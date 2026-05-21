@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>亲密关系模式测试</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- 首页 -->
+    <div id="home-page" class="page active">
+        <div class="home-container">
+            <div class="title-section">
+                <p class="english-subtitle">Relationship Personality System · 8 Types</p>
+                <h1 class="main-title">恋爱8型人格测试</h1>
+                <p class="subtitle">你在亲密关系里，究竟是哪种人格？</p>
+                <p class="subtitle-desc">看清你的底层依恋模式与关系盲点</p>
+            </div>
+            <button class="start-btn" onclick="startTest()">开始测试</button>
+        </div>
+    </div>
+
+    <!-- 答题页面 -->
+    <div id="quiz-page" class="page">
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <span class="quiz-title">恋爱8型人格测试</span>
+                <span class="question-progress">问题 <span id="current-question">1</span> / 20</span>
+            </div>
+            
+            <div class="question-section">
+                <h2 class="question-text" id="question-text"></h2>
+                <div class="options-container" id="options-container"></div>
+            </div>
+            
+            <div class="quiz-nav">
+                <button class="nav-btn prev-btn" id="prev-btn" onclick="prevQuestion()" disabled>← 上一题</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 结果页面 -->
+    <div id="result-page" class="page">
+        <div class="result-container">
+            <!-- ① 类型封面区 -->
+            <div class="result-cover">
+                <div class="cover-header">
+                    <span class="cover-code" id="cover-code">RM-01</span>
+                    <span class="cover-index" id="cover-index">No. 01 / 08</span>
+                </div>
+                <div class="cover-title">
+                    <h1 class="cover-english" id="cover-english">Repeated Confirmation</h1>
+                    <h2 class="cover-chinese" id="cover-chinese">反复确认型</h2>
+                </div>
+                <p class="cover-quote" id="cover-quote">"你需要被不断证明。"</p>
+            </div>
+            
+            <!-- ② 核心人格解读 -->
+            <div class="result-card">
+                <h3 class="card-label">核心人格解读</h3>
+                <div class="card-content" id="core-content">
+                    <p>在关系里，你不是没有自信。</p>
+                    <p>你只是很难在"没有回应"的状态里安稳下来。</p>
+                    <p>&nbsp;</p>
+                    <p>当对方回复慢一点，当语气稍微冷一点，</p>
+                    <p>你脑海里会迅速出现各种推演。</p>
+                    <p>&nbsp;</p>
+                    <p>是不是我说错话了？</p>
+                    <p>是不是他在变心？</p>
+                    <p>是不是我不够好？</p>
+                    <p>&nbsp;</p>
+                    <p>你并不想多想，</p>
+                    <p>但你的系统习惯用"预判风险"来避免失去。</p>
+                </div>
+            </div>
+            
+            <!-- ③ 行为模式分析 -->
+            <div class="result-card">
+                <h3 class="card-label">行为模式分析</h3>
+                <div class="card-content" id="behavior-content">
+                    <p>当连接出现波动，你的焦虑系统会立刻被激活。</p>
+                    <p>你会通过确认、提问、反复沟通来恢复稳定。</p>
+                    <p>&nbsp;</p>
+                    <p>短期内，这确实能缓解不安。</p>
+                    <p>但长期来看，你会越来越依赖外部回应。</p>
+                    <p>&nbsp;</p>
+                    <p>你不是想控制对方，</p>
+                    <p>你只是无法承受"不确定"。</p>
+                </div>
+            </div>
+            
+            <!-- ④ 情绪触发机制 -->
+            <div class="result-card">
+                <h3 class="card-label">情绪触发机制</h3>
+                <div class="card-content" id="trigger-content">
+                    <p>你真正渴望的，是稳定而清晰的爱。</p>
+                    <p>是那种不需要反复确认也能存在的连接。</p>
+                    <p>&nbsp;</p>
+                    <p>你希望被坚定地选择。</p>
+                </div>
+            </div>
+            
+            <!-- ⑤ 潜意识风险预警 -->
+            <div class="result-card risk-card">
+                <div class="card-header">
+                    <span class="risk-icon">⚠</span>
+                    <h3 class="card-label">潜意识风险预警</h3>
+                </div>
+                <div class="card-content" id="risk-content">
+                    <p>爱是会消失的</p>
+                    <p>如果我不够好，就会被替代</p>
+                    <p>我必须时刻保持价值</p>
+                    <p>别人最终都会离开</p>
+                    <p>安全感来自对方的回应</p>
+                    <p>&nbsp;</p>
+                    <p>这些信念往往来自早期的情感不稳定经历。</p>
+                    <p>也可能来自反复被忽略、被比较、被否定的体验。</p>
+                </div>
+            </div>
+            
+            <!-- ⑥ 成长建议 -->
+            <div class="result-card advice-card">
+                <div class="card-header">
+                    <span class="advice-icon">💡</span>
+                    <h3 class="card-label">成长建议</h3>
+                </div>
+                <div class="card-content" id="advice-content">
+                    <p>这类模式通常与"被遗弃"或"价值焦虑"有关。</p>
+                    <p>&nbsp;</p>
+                    <p>疗愈并不是让你变得冷静，</p>
+                    <p>而是让你重新建立一个内在认知：</p>
+                    <p>&nbsp;</p>
+                    <p>爱可以是持续的</p>
+                    <p>即使没有即时回应，我依然是安全的</p>
+                    <p>我的价值不依赖表现</p>
+                    <p>&nbsp;</p>
+                    <p>我们会探索：</p>
+                    <p>&nbsp;</p>
+                    <p>你第一次觉得"我必须证明自己才会被爱"是什么时候？</p>
+                    <p>那个信念是否仍然真实？</p>
+                    <p>&nbsp;</p>
+                    <p>当这个核心信念被清理，</p>
+                    <p>你会发现，你不再需要那么多确认。</p>
+                    <p>你依然可以渴望爱，但不再恐慌。</p>
+                </div>
+            </div>
+            
+            <!-- ⑦ 理想状态 -->
+            <div class="result-card ideal-card">
+                <div class="card-header">
+                    <span class="ideal-icon">✨</span>
+                    <h3 class="card-label">理想状态</h3>
+                </div>
+                <div class="card-content ideal-content" id="ideal-content">
+                    <p>疗愈后的理想状态，是拥有"安全型依恋"。</p>
+                    <p>&nbsp;</p>
+                    <p>你能够：</p>
+                    <p>&nbsp;</p>
+                    <p>在关系中保持适度的独立与亲密，</p>
+                    <p>不因对方的暂时冷淡而过度焦虑；</p>
+                    <p>&nbsp;</p>
+                    <p>能够信任对方，也信任自己；</p>
+                    <p>&nbsp;</p>
+                    <p>即使没有即时回应，</p>
+                    <p>你依然相信这段关系的稳定性。</p>
+                    <p>&nbsp;</p>
+                    <p>爱成为你的底气，</p>
+                    <p>而不是你的软肋。</p>
+                </div>
+            </div>
+            
+            <!-- ⑧ 六维度人格图谱 -->
+            <div class="result-card chart-card">
+                <h3 class="card-label">六维度人格图谱</h3>
+                <div class="chart-container">
+                    <canvas id="radar-chart"></canvas>
+                </div>
+            </div>
+            
+            <!-- CTA 区 -->
+            <div class="result-card cta-card">
+                <!-- 服务介绍区块 -->
+                <div class="cta-section service-section">
+                    <div class="cta-icon-wrapper">
+                        <span class="cta-icon">💬</span>
+                    </div>
+                    <div class="cta-text">
+                        <p class="cta-title">深度梳理</p>
+                        <p>如果你愿意，我们可以进一步梳理你恋爱人格背后的限制性信念与形成路径，理解它如何影响你的亲密互动，逐步建立更成熟、更稳定的关系模式。</p>
+                    </div>
+                </div>
+                
+                <!-- 行动号召区块 -->
+                <div class="cta-section action-section">
+                    <div class="cta-icon-wrapper">
+                        <span class="cta-icon">✉️</span>
+                    </div>
+                    <div class="cta-text">
+                        <p class="cta-title">预约咨询</p>
+                        <p>私信我你的类型，我会为你提供一次公益疗愈咨询，金额随喜。</p>
+                        <p class="cta-wechat">微信：vivi_bzjz</p>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="restart-btn" onclick="restartTest()">重新测试</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

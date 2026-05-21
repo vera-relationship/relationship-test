@@ -1,0 +1,599 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Serif SC', Georgia, serif;
+    background-color: #FAF8F5;
+    min-height: 100vh;
+    color: #3D3D3D;
+    line-height: 1.8;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 60px 20px;
+}
+
+.page.active {
+    display: block;
+}
+
+/* 首页样式 */
+.home-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.title-section {
+    margin-bottom: 80px;
+}
+
+.english-subtitle {
+    font-size: 0.75rem;
+    color: #8B7355;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.main-title {
+    font-size: 2.4rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    color: #2D2D2D;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #8B7355;
+    letter-spacing: 2px;
+}
+
+.subtitle-desc {
+    font-size: 0.95rem;
+    color: #A89B8B;
+    letter-spacing: 1px;
+    margin-top: 8px;
+}
+
+.start-btn {
+    padding: 20px 60px;
+    font-size: 1rem;
+    background-color: #2D2D2D;
+    color: #FAF8F5;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Serif SC', serif;
+    letter-spacing: 3px;
+}
+
+.start-btn:hover {
+    background-color: #1a1a1a;
+    transform: translateY(-2px);
+}
+
+/* 答题页面样式 */
+.quiz-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #E8E4DF;
+}
+
+.quiz-title {
+    font-size: 0.85rem;
+    color: #8B7355;
+    letter-spacing: 3px;
+}
+
+.question-progress {
+    font-size: 0.85rem;
+    color: #8B7355;
+    letter-spacing: 1px;
+}
+
+.question-section {
+    margin-bottom: 50px;
+}
+
+.question-text {
+    font-size: 1.5rem;
+    line-height: 1.9;
+    margin-bottom: 36px;
+    color: #2D2D2D;
+    font-weight: 400;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.option-btn {
+    padding: 22px 28px;
+    text-align: left;
+    background-color: #F5F2ED;
+    border: 1px solid #E8E4DF;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1rem;
+    color: #3D3D3D;
+    letter-spacing: 0.5px;
+}
+
+.option-btn:hover {
+    background-color: #EBE8E3;
+    border-color: #D4CFC7;
+}
+
+.option-btn.selected {
+    background-color: #EBE8E3;
+    border-color: #8B7355;
+}
+
+.quiz-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.nav-btn {
+    padding: 14px 36px;
+    font-size: 0.9rem;
+    border: 1px solid #D4CFC7;
+    background-color: transparent;
+    color: #5C5C5C;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Serif SC', serif;
+    letter-spacing: 1px;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background-color: #2D2D2D;
+    color: #FAF8F5;
+    border-color: #2D2D2D;
+}
+
+.nav-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ==================== 结果页面新样式 ==================== */
+
+.result-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    padding: 40px 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 40px rgba(0,0,0,0.06);
+}
+
+/* ① 类型封面区 */
+.result-cover {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #F0EDE9;
+}
+
+.cover-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.cover-code {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #8B7355;
+    letter-spacing: 4px;
+}
+
+.cover-index {
+    font-size: 0.75rem;
+    color: #B8B0A5;
+    letter-spacing: 2px;
+}
+
+.cover-title {
+    margin-bottom: 20px;
+}
+
+.cover-english {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: #8B7355;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.cover-chinese {
+    font-size: 2.2rem;
+    color: #2D2D2D;
+    font-weight: 600;
+    letter-spacing: 8px;
+}
+
+.cover-quote {
+    font-size: 1rem;
+    color: #8B8B8B;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+/* 卡片模块 */
+.result-card {
+    background-color: #f7f7f7;
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 24px;
+}
+
+.card-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #8B7355;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-family: 'Noto Serif SC', serif;
+}
+
+.card-content p {
+    font-size: 0.92rem;
+    color: #4A4A4A;
+    line-height: 2;
+    letter-spacing: 0.3px;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* 风险预警卡片 */
+.risk-card {
+    background-color: #FFF8F0;
+    border-left: 4px solid #F5A623;
+}
+
+.risk-icon {
+    font-size: 1.2rem;
+}
+
+.risk-card .card-label {
+    color: #D4950B;
+}
+
+.risk-card .card-content p {
+    color: #5C4A32;
+}
+
+.risk-card .card-content p:nth-child(1),
+.risk-card .card-content p:nth-child(2),
+.risk-card .card-content p:nth-child(3),
+.risk-card .card-content p:nth-child(4),
+.risk-card .card-content p:nth-child(5) {
+    font-weight: 500;
+    color: #4A3C2A;
+}
+
+/* 成长建议卡片 */
+.advice-card {
+    background-color: #FFF5F5;
+    border-left: 4px solid #E74C3C;
+}
+
+.advice-icon {
+    font-size: 1.2rem;
+}
+
+.advice-card .card-label {
+    color: #C0392B;
+}
+
+.advice-card .card-content p {
+    color: #5C3D3D;
+}
+
+/* 理想状态卡片 */
+.ideal-card {
+    background-color: #F5FAF7;
+    border-left: 4px solid #27AE60;
+}
+
+.ideal-icon {
+    font-size: 1.2rem;
+}
+
+.ideal-card .card-label {
+    color: #1E8449;
+}
+
+.ideal-card .card-content p {
+    color: #2D4A3E;
+}
+
+.ideal-content p {
+    color: #2D4A3E;
+}
+
+/* 引号文字样式 */
+.belief-text {
+    font-weight: 500;
+    color: #4A4A4A;
+    font-style: italic;
+}
+
+.risk-card .belief-text {
+    color: #4A3C2A;
+}
+
+.advice-card .belief-text {
+    color: #6B4A4A;
+}
+
+/* 雷达图卡片 */
+.chart-card {
+    background-color: #FFFFFF;
+    border: 1px solid #F0EDE9;
+}
+
+.chart-container {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 16px 0;
+}
+
+.chart-container canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* CTA 区 */
+.cta-card {
+    background: linear-gradient(135deg, #FAFAFA 0%, #F5F5F5 100%);
+    border: 1px solid #F0EDE9;
+    padding: 24px;
+}
+
+.cta-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.cta-section:last-child {
+    margin-bottom: 0;
+}
+
+.cta-icon-wrapper {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 1px solid #E8E8E8;
+}
+
+.cta-icon {
+    font-size: 1.4rem;
+}
+
+.cta-text {
+    flex: 1;
+}
+
+.cta-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #3D3D3D;
+    letter-spacing: 2px;
+    margin-bottom: 8px !important;
+    text-transform: uppercase;
+}
+
+.cta-text p {
+    font-size: 0.9rem;
+    color: #6B6B6B;
+    line-height: 1.8;
+    margin-bottom: 0 !important;
+}
+
+/* 理想状态区块 */
+.ideal-section {
+    background-color: #F5FAF7;
+    border-left: 3px solid #27AE60;
+}
+
+.ideal-section .cta-icon-wrapper {
+    background-color: rgba(39, 174, 96, 0.1);
+    border-color: rgba(39, 174, 96, 0.2);
+}
+
+.ideal-section .cta-title {
+    color: #1E8449;
+}
+
+/* 服务介绍区块 */
+.service-section {
+    background-color: #FDF8F0;
+    border-left: 3px solid #F5A623;
+}
+
+.service-section .cta-icon-wrapper {
+    background-color: rgba(245, 166, 35, 0.1);
+    border-color: rgba(245, 166, 35, 0.2);
+}
+
+.service-section .cta-title {
+    color: #D4950B;
+}
+
+/* 行动号召区块 */
+.action-section {
+    background-color: #FFF5F5;
+    border-left: 3px solid #E74C3C;
+}
+
+.action-section .cta-icon-wrapper {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-color: rgba(231, 76, 60, 0.2);
+}
+
+.action-section .cta-title {
+    color: #C0392B;
+}
+
+.action-section .cta-wechat {
+    font-size: 0.95rem;
+    color: #E74C3C;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-top: 12px !important;
+}
+
+/* 重新测试按钮 */
+.restart-btn {
+    display: block;
+    width: 100%;
+    margin-top: 40px;
+    padding: 18px;
+    font-size: 0.85rem;
+    background-color: transparent;
+    color: #8B7355;
+    border: 1px solid #D4CFC7;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Serif SC', serif;
+    letter-spacing: 3px;
+}
+
+.restart-btn:hover {
+    background-color: #2D2D2D;
+    color: #FAF8F5;
+    border-color: #2D2D2D;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    .english-subtitle {
+        font-size: 0.65rem;
+        letter-spacing: 2px;
+    }
+    
+    .main-title {
+        font-size: 1.7rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .subtitle-desc {
+        font-size: 0.85rem;
+    }
+    
+    .question-text {
+        font-size: 1.25rem;
+    }
+    
+    .option-btn {
+        padding: 18px 22px;
+        font-size: 0.95rem;
+    }
+    
+    .result-container {
+        padding: 24px 20px;
+    }
+    
+    .cover-chinese {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+    }
+    
+    .result-card {
+        padding: 24px;
+    }
+    
+    .cover-code {
+        font-size: 0.75rem;
+    }
+    
+    .nav-btn {
+        padding: 12px 24px;
+        font-size: 0.85rem;
+    }
+    
+    .quiz-nav {
+        justify-content: center;
+    }
+    
+    .cta-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .cta-icon-wrapper {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .cta-icon {
+        font-size: 1.2rem;
+    }
+}
+
+/* 打印/截图友好 */
+@media print {
+    body {
+        background-color: white;
+    }
+    
+    .result-container {
+        box-shadow: none;
+    }
+}
